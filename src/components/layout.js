@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <main>{children}</main>
       <footer>
         © {new Date().getFullYear()}, Kyle Ross All right reserved{" "}

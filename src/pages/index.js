@@ -2,11 +2,14 @@ import React from "react";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import Hero from "../components/hero";
+import { Heading } from "theme-ui";
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <h1>Page Header 1</h1>
+    <Hero />
+    <Heading as="h1">Page header 1</Heading>
     <p>
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas
       praesentium nisi incidunt nostrum placeat odit rerum ex. Ipsa excepturi
