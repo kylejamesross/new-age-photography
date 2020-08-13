@@ -1,9 +1,7 @@
-/** @jsx jsx */
-import { jsx } from "theme-ui";
 import BackgroundImage from "gatsby-background-image";
 import { useStaticQuery } from "gatsby";
 import styled from "@emotion/styled";
-import { Heading } from "theme-ui";
+import React from "react";
 
 const HeroImage = styled(BackgroundImage)`
   width: 100%;
@@ -17,6 +15,12 @@ const HeroImage = styled(BackgroundImage)`
 const TextBox = styled.div`
   max-width: 600px;
   text-align: center;
+  padding: 0 1rem;
+  h1,
+  h2 {
+    color: ${({ theme }) => theme.colors.lynxWhite};
+    text-shadow: 0.15rem 0.2rem 0.15rem rgba(0, 0, 0, 0.3);
+  }
 `;
 
 const Hero = () => {
@@ -35,22 +39,8 @@ const Hero = () => {
   return (
     <HeroImage Tag="section" fluid={image.sharp.fluid} fadeIn="soft">
       <TextBox>
-        <Heading
-          sx={{
-            textShadow: "2px 4px 3px rgba(0,0,0,0.3)",
-          }}
-          variant="styles.h1.light"
-          as="h1"
-        >
-          New Age Photography
-        </Heading>
-        <Heading
-          sx={{ textShadow: "2px 4px 3px rgba(0,0,0,0.3)" }}
-          variant="styles.h2.light"
-          as="h2"
-        >
-          Seeing the World, Through the Eyes of My Lens
-        </Heading>
+        <h1>New Age Photography</h1>
+        <h2>Seeing the World, Through the Eyes of My Lens</h2>
       </TextBox>
     </HeroImage>
   );

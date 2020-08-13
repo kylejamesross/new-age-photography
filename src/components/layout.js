@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import Header from "./header";
+import StylesProvider from "./styles-provider";
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -15,13 +16,13 @@ const Layout = ({ children }) => {
   `);
 
   return (
-    <>
-      {/* <Header /> */}
+    <StylesProvider>
+      <Header />
       <main>{children}</main>
       <footer>
         © {new Date().getFullYear()}, Kyle Ross All right reserved{" "}
       </footer>
-    </>
+    </StylesProvider>
   );
 };
 
