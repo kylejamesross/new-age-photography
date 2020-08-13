@@ -1,29 +1,44 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
 import styled from "@emotion/styled";
+import Icon from "../assets/hamburger.svg";
 
 const StyledHeader = styled.header`
   position: absolute;
   width: 100%;
-  padding: 1rem 0;
+  padding: 1rem;
   z-index: 1;
 `;
 
 const HeaderNav = styled.nav`
+  display: flex;
+  align-items: flex-start;
   max-width: ${({ theme }) => theme.contentWidth};
   margin: 0 auto;
+  width: 100%;
 `;
 
 const HeaderNavItems = styled.ul`
   list-style: none;
   margin: 0;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  max-height: ${props => (props.open ? "999px" : "0")};
+  visibility: ${props => (props.open ? "visible" : "hidden")};
+  overflow: hidden;
+  transition: max-height 0.3s;
+  justify-content: space-between;
+  @media (min-width: 720px) {
+    visibility: visible;
+    max-height: 999px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
 `;
 
 const HeaderNavItem = styled.li`
   margin: 0;
+  padding: 1rem 0;
 `;
 
 const HeaderNavLink = styled(Link)`
@@ -34,11 +49,27 @@ const HeaderNavLink = styled(Link)`
   }
 `;
 
+const HamburgerIcon = styled(Icon)`
+  width: 3.5rem;
+  cursor: pointer;
+  margin: 0 0 0 auto;
+  path {
+    fill: ${({ theme }) => theme.colors.lynxWhite};
+  }
+  @media (min-width: 720px) {
+    display: none;
+  }
+`;
+
 const Header = () => {
+  const [open, setState] = useState(false);
+
+  const onClick = () => setState(!open);
+
   return (
     <StyledHeader>
       <HeaderNav>
-        <HeaderNavItems>
+        <HeaderNavItems open={open}>
           <HeaderNavItem>
             <HeaderNavLink to="/weddings/">Home</HeaderNavLink>
           </HeaderNavItem>
@@ -55,6 +86,7 @@ const Header = () => {
             <HeaderNavLink to="/weddings/">Contact</HeaderNavLink>
           </HeaderNavItem>
         </HeaderNavItems>
+        <HamburgerIcon onClick={onClick} />
       </HeaderNav>
     </StyledHeader>
   );
