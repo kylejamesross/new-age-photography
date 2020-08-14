@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    title: `New Ago Photography`,
+    description: `Welcome to New Age Photography! This site is our hub for our Photographers that specialize in capturing real moments that touch the people that are connected to them. We offer the very best in Wedding Photography by taking the greatest care in telling your unique love story.`,
     author: `@gatsbyjs`,
   },
   plugins: [

@@ -2,12 +2,20 @@ import React, { useState } from "react";
 import { Link } from "gatsby";
 import styled from "@emotion/styled";
 import Icon from "../assets/hamburger.svg";
+import useWindowScrollPosition from "@rehooks/window-scroll-position";
 
 const StyledHeader = styled.header`
-  position: absolute;
+  position: ${({ isFixed }) => (isFixed ? "fixed" : "absolute")};
+  background-color: ${({ isFixed, theme }) =>
+    isFixed ? theme.colors.white : "transparent"};
+  top: 0;
   width: 100%;
   padding: 1rem;
   z-index: 1;
+  box-shadow: ${({ isFixed }) =>
+    isFixed
+      ? "0 4px 18px 0px rgba(0, 0, 0, 0.12), 0 7px 10px -5px rgba(0, 0, 0, 0.15)"
+      : "none"};
 `;
 
 const HeaderNav = styled.nav`
@@ -42,10 +50,16 @@ const HeaderNavItem = styled.li`
 `;
 
 const HeaderNavLink = styled(Link)`
-  color: ${({ theme }) => theme.colors.lynxWhite};
-  text-shadow: 0.15rem 0.2rem 0.15rem rgba(0, 0, 0, 0.3);
+  color: ${({ theme, isFixed }) =>
+    isFixed ? theme.colors.lightDraculaOrchid : theme.colors.white};
+  text-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.15);
   &:hover {
-    color: ${({ theme }) => theme.colors.hoverLynxWhite};
+    color: ${({ theme, isFixed }) =>
+      isFixed ? theme.colors.draculaOrchid : theme.colors.darkLynxWhite};
+  }
+  &:active {
+    color: ${({ theme, isFixed }) =>
+      isFixed ? theme.colors.darkDraculaOrchid : theme.colors.darkerLynxWhite};
   }
 `;
 
@@ -53,8 +67,11 @@ const HamburgerIcon = styled(Icon)`
   width: 3.5rem;
   cursor: pointer;
   margin: 0 0 0 auto;
-  path {
-    fill: ${({ theme }) => theme.colors.lynxWhite};
+  fill: ${({ theme, isFixed }) =>
+    isFixed ? theme.colors.lightDraculaOrchid : theme.colors.white};
+  &:hover {
+    fill: ${({ theme, isFixed }) =>
+      isFixed ? theme.colors.draculaOrchid : theme.colors.darkLynxWhite};
   }
   @media (min-width: 720px) {
     display: none;
@@ -66,27 +83,41 @@ const Header = () => {
 
   const onClick = () => setState(!open);
 
+  const { y: scrollY } = useWindowScrollPosition({ throttle: 100 });
+
+  const isFixed = scrollY >= 500;
+
   return (
-    <StyledHeader>
+    <StyledHeader isFixed={isFixed}>
       <HeaderNav>
         <HeaderNavItems open={open}>
           <HeaderNavItem>
-            <HeaderNavLink to="/weddings/">Home</HeaderNavLink>
+            <HeaderNavLink to="/" isFixed={isFixed}>
+              Home
+            </HeaderNavLink>
           </HeaderNavItem>
           <HeaderNavItem>
-            <HeaderNavLink to="/weddings/">About</HeaderNavLink>
+            <HeaderNavLink to="/weddings/" isFixed={isFixed}>
+              About
+            </HeaderNavLink>
           </HeaderNavItem>
           <HeaderNavItem>
-            <HeaderNavLink to="/weddings/">Weddings</HeaderNavLink>
+            <HeaderNavLink to="/weddings/" isFixed={isFixed}>
+              Weddings
+            </HeaderNavLink>
           </HeaderNavItem>
           <HeaderNavItem>
-            <HeaderNavLink to="/weddings/">Engagement</HeaderNavLink>
+            <HeaderNavLink to="/weddings/" isFixed={isFixed}>
+              Engagement
+            </HeaderNavLink>
           </HeaderNavItem>
           <HeaderNavItem>
-            <HeaderNavLink to="/weddings/">Contact</HeaderNavLink>
+            <HeaderNavLink to="/weddings/" isFixed={isFixed}>
+              Contact
+            </HeaderNavLink>
           </HeaderNavItem>
         </HeaderNavItems>
-        <HamburgerIcon onClick={onClick} />
+        <HamburgerIcon onClick={onClick} isFixed={isFixed} />
       </HeaderNav>
     </StyledHeader>
   );

@@ -18,7 +18,7 @@ const TextBox = styled.div`
   padding: 0 1rem;
   h1,
   h2 {
-    color: ${({ theme }) => theme.colors.lynxWhite};
+    color: ${({ theme }) => theme.colors.white};
     text-shadow: 0.15rem 0.2rem 0.15rem rgba(0, 0, 0, 0.3);
   }
 `;
