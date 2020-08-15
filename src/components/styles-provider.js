@@ -10,6 +10,7 @@ const theme = {
     draculaOrchid: "#2d3436",
     darkDraculaOrchid: "#282e30",
     lightDraculaOrchid: "#7f8c8d",
+    silver: "#bdc3c7",
   },
   contentWidth: "1100px",
 };

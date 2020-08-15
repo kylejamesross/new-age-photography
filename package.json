@@ -31,7 +31,8 @@
     "reactstrap": "^8.5.1",
     "theme-ui": "^0.3.1",
     "typography": "^0.16.19",
-    "typography-theme-grand-view": "^0.16.19"
+    "typography-theme-grand-view": "^0.16.19",
+    "typography-theme-wordpress-2016": "^0.16.19"
   },
   "devDependencies": {
     "prettier": "2.0.5"
