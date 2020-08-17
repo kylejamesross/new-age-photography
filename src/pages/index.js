@@ -3,7 +3,7 @@ import React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Hero from "../components/content-blocks/hero";
-import TeamDetails from "../components/content-blocks/team-details";
+import TeamDetails from "../components/content-blocks/team-details/team-details";
 
 const IndexPage = () => (
   <Layout>
