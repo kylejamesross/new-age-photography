@@ -4,6 +4,7 @@ import { useStaticQuery } from "gatsby";
 import styled from "@emotion/styled";
 import { graphql } from "gatsby";
 import Card from "./card";
+import H2 from "../../general/H2";
 
 const Grid = styled.div`
   display: grid;
@@ -67,6 +68,7 @@ const TeamDetails = props => {
   return (
     <section>
       <ContentLayout>
+        <H2>The Team</H2>
         <Grid>
           <Card
             img={teamMember1.sharp.fluid}
