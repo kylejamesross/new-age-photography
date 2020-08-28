@@ -1,17 +1,12 @@
 import React from "react";
 import styled from "@emotion/styled";
 import Img from "gatsby-image";
+import { Link } from "gatsby";
 
 const StyledProductDetail = styled.div`
   display: grid;
   grid-gap: 1rem;
   margin: 1rem 0;
-  > div:nth-child(2) {
-    grid-row: 1 / 2;
-  }
-  > div:nth-child(1) {
-    grid-row: 2 / 3;
-  }
 
   @media (min-width: 800px) {
     grid-template-columns: 0.75fr 0.25fr;
@@ -19,14 +14,14 @@ const StyledProductDetail = styled.div`
     justify-content: center;
     justify-items: center;
     height: 250px;
-    > div:nth-child(1),
-    > div:nth-child(2) {
-      grid-row: 1 / 2;
-    }
   }
 `;
 
 const ProductDetailImg = styled(Img)`
+  border-radius: 1rem;
+`;
+
+const ImageLink = styled(Link)`
   border-radius: 1rem;
   width: 100%;
   max-width: 250px;
@@ -37,13 +32,17 @@ const P = styled.p`
   max-width: 700px;
 `;
 
-const ProductDetail = ({ header, body, img, imgAlt }) => (
+const ProductDetail = ({ header, body, img, imgAlt, to }) => (
   <StyledProductDetail>
     <div>
-      <h3>{header}</h3>
+      <Link to={to}>
+        <h3>{header}</h3>
+      </Link>
       <P>{body}</P>
     </div>
-    <ProductDetailImg fluid={img} alt={imgAlt} />
+    <ImageLink to={to}>
+      <ProductDetailImg fluid={img} alt={imgAlt} />
+    </ImageLink>
   </StyledProductDetail>
 );
 

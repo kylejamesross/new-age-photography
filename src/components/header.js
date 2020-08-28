@@ -97,7 +97,7 @@ const Header = () => {
             </HeaderNavLink>
           </HeaderNavItem>
           <HeaderNavItem>
-            <HeaderNavLink to="/weddings/" isFixed={isFixed}>
+            <HeaderNavLink to="/about/" isFixed={isFixed}>
               About
             </HeaderNavLink>
           </HeaderNavItem>
@@ -107,7 +107,7 @@ const Header = () => {
             </HeaderNavLink>
           </HeaderNavItem>
           <HeaderNavItem>
-            <HeaderNavLink to="/weddings/" isFixed={isFixed}>
+            <HeaderNavLink to="/engagements/" isFixed={isFixed}>
               Engagement
             </HeaderNavLink>
           </HeaderNavItem>
