@@ -2,7 +2,6 @@ import React from "react";
 import styled from "@emotion/styled";
 import ContentLayout from "../../content-layout";
 import { useStaticQuery } from "gatsby";
-import Img from "gatsby-image";
 import { graphql } from "gatsby";
 import ProductDetail from "./product-detail";
 
