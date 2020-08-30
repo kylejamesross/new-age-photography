@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `New Ago Photography`,
+    title: `New Age Photography`,
     description: `Welcome to New Age Photography! This site is our hub for our Photographers that specialize in capturing real moments that touch the people that are connected to them. We offer the very best in Wedding Photography by taking the greatest care in telling your unique love story.`,
     author: `@gatsbyjs`,
   },

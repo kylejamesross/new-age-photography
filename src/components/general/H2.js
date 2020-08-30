@@ -6,10 +6,10 @@ const H2 = styled.h2`
   &:before {
     display: block;
     content: "";
-    height: 2px;
+    height: 1px;
     width: 100px;
     margin: 0 auto;
-    border: 1px solid ${({ theme }) => theme.colors.draculaOrchid};
+    background-color: ${({ theme }) => theme.colors.draculaOrchid};
     position: relative;
     top: 2.3rem;
   }

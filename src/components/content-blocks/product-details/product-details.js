@@ -4,6 +4,7 @@ import ContentLayout from "../../content-layout";
 import { useStaticQuery } from "gatsby";
 import { graphql } from "gatsby";
 import ProductDetail from "./product-detail";
+import H2 from "../../general/H2";
 
 const StyledProductDetails = styled.div`
   padding: 1rem;
@@ -43,9 +44,10 @@ const ProductDetails = () => {
 
   return (
     <ContentLayout>
+      <H2>Services</H2>
       <StyledProductDetails>
         <ProductDetail
-          header="Wedding Perfection!"
+          header="Weddings"
           body="We are a studio of talented Calgary Wedding Photographers, headed
               by Lead Photographer and Owner, Nicole. We feel honoured to meet
               and develop friendships with our clients while creating beautiful
@@ -59,7 +61,7 @@ const ProductDetails = () => {
           isOdd
         />
         <ProductDetail
-          header="Lets experience the moment"
+          header="Engagements"
           body="We want to create that date that you will never forget. We specialize in photographing couple and portraying the reason why the couple is together. Its recommend that you dress up to make the experience even more special.
             "
           img={engagement.sharp.fluid}
