@@ -10,12 +10,10 @@ const StyledHeader = styled.header`
     isFixed ? theme.colors.white : "transparent"};
   top: 0;
   width: 100%;
-  padding: 1rem;
+  padding: 0.5rem;
   z-index: 1;
   box-shadow: ${({ isFixed }) =>
-    isFixed
-      ? "0 4px 18px 0px rgba(0, 0, 0, 0.12), 0 7px 10px -5px rgba(0, 0, 0, 0.15)"
-      : "none"};
+    isFixed ? "0 0.125rem 0.625rem -0.1875rem rgba(0,0,0,0.1)" : "none"};
 `;
 
 const HeaderNav = styled.nav`
@@ -51,15 +49,17 @@ const HeaderNavItem = styled.li`
 
 const HeaderNavLink = styled(Link)`
   color: ${({ theme, isFixed }) =>
-    isFixed ? theme.colors.lightDraculaOrchid : theme.colors.white};
-  text-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.15);
+    isFixed ? "#5d5d5d" : "rgba(255, 255, 255, 0.8)"};
+  &:visited {
+    color: ${({ theme, isFixed }) =>
+      isFixed ? "#5d5d5d" : "rgba(255, 255, 255, 0.8)"};
+  }
   &:hover {
     color: ${({ theme, isFixed }) =>
-      isFixed ? theme.colors.draculaOrchid : theme.colors.darkLynxWhite};
+      isFixed ? "#7d7d7d" : "rgba(255, 255, 255, 0.9)"};
   }
-  &:active {
-    color: ${({ theme, isFixed }) =>
-      isFixed ? theme.colors.darkDraculaOrchid : theme.colors.darkerLynxWhite};
+  &:before {
+    display: none;
   }
 `;
 
@@ -68,10 +68,10 @@ const HamburgerIcon = styled(Icon)`
   cursor: pointer;
   margin: 0 0 0 auto;
   fill: ${({ theme, isFixed }) =>
-    isFixed ? theme.colors.lightDraculaOrchid : theme.colors.white};
+    isFixed ? theme.colors.lightDraculaOrchid : "rgba(255, 255, 255, 0.8)"};
   &:hover {
     fill: ${({ theme, isFixed }) =>
-      isFixed ? theme.colors.draculaOrchid : theme.colors.darkLynxWhite};
+      isFixed ? theme.colors.draculaOrchid : "rgba(255, 255, 255, 0.9)"};
   }
   @media (min-width: 720px) {
     display: none;

@@ -1,14 +1,20 @@
 import Typography from "typography";
-import grandViewTheme from "typography-theme-grand-view";
+import wordpressKubrickTheme from "typography-theme-wordpress-kubrick";
 
-grandViewTheme.baseFontSize = "16px";
-grandViewTheme.bodyColor = "#2d3436";
-grandViewTheme.overrideThemeStyles = ({ rhythm }, options) => ({
+wordpressKubrickTheme.baseFontSize = "16px";
+wordpressKubrickTheme.bodyColor = "#2d3436";
+wordpressKubrickTheme.overrideThemeStyles = ({ rhythm }, options) => ({
   "h1,h2,h3,h4,h5,h6": {
     marginTop: rhythm(1),
   },
+  "ul li:before": {
+    display: "none",
+  },
+  "a:visited": {
+    color: "#06c",
+  },
 });
 
-const typography = new Typography(grandViewTheme);
+const typography = new Typography(wordpressKubrickTheme);
 
 export default typography;
