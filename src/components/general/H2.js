@@ -3,6 +3,8 @@ import styled from "@emotion/styled";
 
 const H2 = styled.h2`
   text-align: center;
+  padding: 1.4rem;
+  margin: 0;
   &:before {
     display: block;
     content: "";

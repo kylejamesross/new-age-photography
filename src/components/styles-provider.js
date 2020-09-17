@@ -1,6 +1,7 @@
 import React from "react";
 import { ThemeProvider } from "emotion-theming";
 import { Global, css } from "@emotion/core";
+import { Grommet } from "grommet";
 
 const theme = {
   colors: {
@@ -16,17 +17,19 @@ const theme = {
 };
 
 const StylesProvider = ({ children }) => (
-  <ThemeProvider theme={theme}>
-    <Global
-      styles={css`
-        * {
-          box-sizing: border-box;
-          margin: 0;
-        }
-      `}
-    />
-    {children}
-  </ThemeProvider>
+  <Grommet>
+    <ThemeProvider theme={theme}>
+      <Global
+        styles={css`
+          * {
+            box-sizing: border-box;
+            margin: 0;
+          }
+        `}
+      />
+      {children}
+    </ThemeProvider>
+  </Grommet>
 );
 
 export default StylesProvider;

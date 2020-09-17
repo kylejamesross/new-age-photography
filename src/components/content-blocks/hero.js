@@ -27,7 +27,7 @@ const Hero = () => {
   const { image } = useStaticQuery(graphql`
     query {
       image: file(
-        relativePath: { eq: "holger-link-Hc1JMS41EyY-unsplash.jpg" }
+        relativePath: { eq: "briana-autran-bptystWzHho-unsplash.jpg" }
       ) {
         sharp: childImageSharp {
           fluid(quality: 90, maxWidth: 2560) {
