@@ -42,7 +42,7 @@ const Hero = () => {
     <HeroImage Tag="section" fluid={image.sharp.fluid} fadeIn="soft">
       <TextBox>
         <h1>New Age Photography</h1>
-        <h2>Seeing the World, Through the Eyes of My Lens</h2>
+        <h2>Seeing the World, Through the Eyes of Our Lens</h2>
       </TextBox>
     </HeroImage>
   );

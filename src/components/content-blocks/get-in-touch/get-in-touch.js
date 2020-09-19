@@ -18,8 +18,8 @@ const StyledGetInTouch = styled.section`
 
 const StyledH2 = styled(H2)`
   color: ${({ theme }) => theme.colors.white};
-  &:before {
-    background-color: ${({ theme }) => theme.colors.white};
+  path {
+    fill: ${({ theme }) => theme.colors.white};
   }
 `;
 
@@ -41,7 +41,7 @@ const GetInTouch = () => {
   return (
     <StyledGetInTouch>
       <ContentWrapper>
-        <StyledH2>Request a quote</StyledH2>
+        <StyledH2 isLight>Request a quote</StyledH2>
         <Form
           value={value}
           onChange={nextValue => setValue(nextValue)}

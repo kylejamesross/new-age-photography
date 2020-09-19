@@ -3,6 +3,8 @@ import { Link } from "gatsby";
 import styled from "@emotion/styled";
 import Icon from "../assets/hamburger.svg";
 import useWindowScrollPosition from "@rehooks/window-scroll-position";
+import { useStaticQuery } from "gatsby";
+import Img from "gatsby-image";
 
 const StyledHeader = styled.header`
   position: ${({ isFixed }) => (isFixed ? "fixed" : "absolute")};
@@ -10,10 +12,19 @@ const StyledHeader = styled.header`
     isFixed ? theme.colors.white : "transparent"};
   top: 0;
   width: 100%;
-  padding: 0.5rem;
+  padding: 1rem;
   z-index: 1;
   box-shadow: ${({ isFixed }) =>
-    isFixed ? "0 0.125rem 0.625rem -0.1875rem rgba(0,0,0,0.1)" : "none"};
+    isFixed
+      ? "0 4px 18px 0px rgba(0, 0, 0, 0.12), 0 7px 10px -5px rgba(0, 0, 0, 0.15)"
+      : "none"};
+`;
+
+const Logo = styled(Img)`
+  width: 75px;
+  height: auto;
+  background-size: contain;
+  display: ${props => (props.open ? "none" : "block")};
 `;
 
 const HeaderNav = styled.nav`
@@ -49,17 +60,13 @@ const HeaderNavItem = styled.li`
 
 const HeaderNavLink = styled(Link)`
   color: ${({ theme, isFixed }) =>
-    isFixed ? "#5d5d5d" : "rgba(255, 255, 255, 0.8)"};
+    isFixed ? theme.colors.lightDraculaOrchid : "rgba(255, 255, 255, 0.8)"};
+  text-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.15);
+  &:hover,
+  &:active,
   &:visited {
     color: ${({ theme, isFixed }) =>
-      isFixed ? "#5d5d5d" : "rgba(255, 255, 255, 0.8)"};
-  }
-  &:hover {
-    color: ${({ theme, isFixed }) =>
-      isFixed ? "#7d7d7d" : "rgba(255, 255, 255, 0.9)"};
-  }
-  &:before {
-    display: none;
+      isFixed ? theme.colors.lightDraculaOrchid : "rgba(255, 255, 255, 0.8)"};
   }
 `;
 
@@ -81,6 +88,18 @@ const HamburgerIcon = styled(Icon)`
 const Header = () => {
   const [open, setState] = useState(false);
 
+  const { image } = useStaticQuery(graphql`
+    query {
+      image: file(relativePath: { eq: "logo.png" }) {
+        sharp: childImageSharp {
+          fluid(quality: 100, maxWidth: 75) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+    }
+  `);
+
   const onClick = () => setState(!open);
 
   const { y: scrollY } = useWindowScrollPosition({ throttle: 100 });
@@ -90,6 +109,7 @@ const Header = () => {
   return (
     <StyledHeader isFixed={isFixed}>
       <HeaderNav>
+        <Logo open={open} fluid={image.sharp.fluid} fadeIn="soft" />
         <HeaderNavItems open={open}>
           <HeaderNavItem>
             <HeaderNavLink to="/" isFixed={isFixed}>
