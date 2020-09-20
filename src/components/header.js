@@ -128,7 +128,7 @@ const Header = () => {
           </HeaderNavItem>
           <HeaderNavItem>
             <HeaderNavLink to="/engagements/" isFixed={isFixed}>
-              Engagement
+              Engagements
             </HeaderNavLink>
           </HeaderNavItem>
           <HeaderNavItem>

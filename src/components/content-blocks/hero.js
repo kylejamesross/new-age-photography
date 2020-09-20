@@ -1,5 +1,4 @@
 import BackgroundImage from "gatsby-background-image";
-import { useStaticQuery } from "gatsby";
 import styled from "@emotion/styled";
 import React from "react";
 
@@ -23,27 +22,10 @@ const TextBox = styled.div`
   }
 `;
 
-const Hero = () => {
-  const { image } = useStaticQuery(graphql`
-    query {
-      image: file(
-        relativePath: { eq: "briana-autran-bptystWzHho-unsplash.jpg" }
-      ) {
-        sharp: childImageSharp {
-          fluid(quality: 90, maxWidth: 2560) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-    }
-  `);
-
+const Hero = ({ image, children }) => {
   return (
     <HeroImage Tag="section" fluid={image.sharp.fluid} fadeIn="soft">
-      <TextBox>
-        <h1>New Age Photography</h1>
-        <h2>Seeing the World, Through the Eyes of Our Lens</h2>
-      </TextBox>
+      <TextBox>{children}</TextBox>
     </HeroImage>
   );
 };
