@@ -132,8 +132,8 @@ const Header = () => {
             </HeaderNavLink>
           </HeaderNavItem>
           <HeaderNavItem>
-            <HeaderNavLink to="/weddings/" isFixed={isFixed}>
-              Contact
+            <HeaderNavLink to="/request-a-quote/" isFixed={isFixed}>
+              Request a quote
             </HeaderNavLink>
           </HeaderNavItem>
         </HeaderNavItems>
