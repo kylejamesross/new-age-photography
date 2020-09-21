@@ -13,7 +13,7 @@ const StyledFooter = styled.footer`
 
 const Footer = () => (
   <StyledFooter>
-    © {new Date().getFullYear()}, New Age Photography All right reserved{" "}
+    © {new Date().getFullYear()}, New Age Photography All rights reserved{" "}
   </StyledFooter>
 );
 
