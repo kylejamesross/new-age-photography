@@ -102,9 +102,9 @@ const Header = () => {
 
   const onClick = () => setState(!open);
 
-  const { y: scrollY } = useWindowScrollPosition({ throttle: 100 });
+  // const { y: scrollY } = useWindowScrollPosition({ throttle: 100 });
 
-  const isFixed = scrollY >= 500;
+  const isFixed = true;
 
   return (
     <StyledHeader isFixed={isFixed}>
