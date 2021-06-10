@@ -1,6 +1,6 @@
 # New Age Photography
 
-Sample photography website developed using Gatsby.
+A photography portfolio website developed using Gatsby.
 
 1.  **Developing.**
 
